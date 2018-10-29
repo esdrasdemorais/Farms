@@ -1,0 +1,83 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+-->
+<div class="container">
+  <div class="row">
+      <div class="col-sm-4">
+        <a href="#/animals"><img src="./assets/Animals.png" class="icons" /></a>
+      </div>
+      <div class="col-sm-4">
+        <a href="#/plantations"><img src="./assets/Plantations.png" class="icons" /></a>
+      </div>
+      <div class="col-sm-4">
+        <a href="#/fences"><img src="./assets/Fences.png" class="icons" /></a>
+      </div>
+      <div class="col-sm-4">
+        <a href="#/drones"><img src="./assets/Drones.png" class="icons" /></a>
+      </div>
+      <div class="col-sm-4">
+        <a href="#/machines"><img src="./assets/Machines.png" class="icons" /></a>
+      </div>
+      <div class="col-sm-4">
+        <a href="#/employees"><img src="./assets/Employees.png" class="icons" /></a>
+      </div>    
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Microservices</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!--<form>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+        <div class="input-group">
+          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </form>-->
+    <div class="row">
+      <div class="col-sm"><img src="./assets/Animals.png" /></div>
+      <div class="col-sm"><img src="./assets/Plantations.png" /></div>
+      <div class="col-sm"><img src="./assets/Fences.png" /></div>    
+    </div>
+    <div class="row">
+      <div class="col-sm"><img src="./assets/Drones.png" /></div>
+      <div class="col-sm"><img src="./assets/Machines.png" /></div>
+      <div class="col-sm"><img src="./assets/Employees.png" /></div>    
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<!-- <hr> -->
+
+<pre>{{closeResult}}</pre>

@@ -1,0 +1,22 @@
+h1 {
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 177%;
+}
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}
+div.container {
+  padding: 17px;
+}
+div.col-sm {
+  padding-bottom: 17px;
+  background: #000;
+}
