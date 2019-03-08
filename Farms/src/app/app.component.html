@@ -21,6 +21,11 @@
 -->
 <div class="container">
   <div class="row">
+    <input class="uploadNf-input" multiple
+      type="file" (change)="handleFileInput($event)"
+      #nfInput>
+  </div>
+  <div class="row">
       <div class="col-sm-4">
         <a href="#/animals"><img src="./assets/Animals.png" class="icons" /></a>
       </div>
@@ -81,3 +86,5 @@
 <!-- <hr> -->
 
 <pre>{{closeResult}}</pre>
+
+<router-outlet></router-outlet>
