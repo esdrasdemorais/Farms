@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c35da3f-00f6-40d7-bfd8-2aeccd251453" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Farms/src/app/.app.component.ts.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/.watchmanconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/__tests__/App-test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/assets/fonts/SpaceMono-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/assets/images/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/assets/images/robot-dev.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/assets/images/robot-prod.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/assets/images/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/components/StyledText.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/components/TabBarIcon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/components/__tests__/StyledText-test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/constants/Colors.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/constants/Layout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/navigation/AppNavigator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/navigation/MainTabNavigator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/screens/HomeScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/screens/LinksScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FarmsMobile/screens/SettingsScreen.js" beforeDir="false" />
-    </list>
+    <list default="true" id="0c35da3f-00f6-40d7-bfd8-2aeccd251453" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +12,10 @@
     <session id="2051186359">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -58,7 +35,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -67,10 +43,16 @@
               <item name="FarmsAndroid" type="b2602c69:ProjectViewProjectNode" />
               <item name="FarmsAndroid" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="FarmsAndroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmsAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -107,22 +89,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1299" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.3299373" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.3299373" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
