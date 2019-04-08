@@ -10,5 +10,9 @@ public interface ILoginView {
 
     void setPassword(String password);
 
-    void showUserSavedMessage();
+    void showUserLoggingMessage();
+
+    void updateUserInfoTextView(String info);
+    void showProgressBar();
+    void hideProgressBar();
 }

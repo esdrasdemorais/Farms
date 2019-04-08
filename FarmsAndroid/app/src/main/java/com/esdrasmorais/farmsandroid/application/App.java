@@ -2,6 +2,7 @@ package com.esdrasmorais.farmsandroid.application;
 
 import android.app.Application;
 
+import com.esdrasmorais.farmsandroid.component.DaggerIAppComponent;
 import com.esdrasmorais.farmsandroid.component.IAppComponent;
 import com.esdrasmorais.farmsandroid.module.AppModule;
 import com.esdrasmorais.farmsandroid.module.LoginModule;
@@ -13,8 +14,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        component = DaggerAppComponent.builder()
-            .appModule(new AppModule())
+        component = DaggerIAppComponent.builder()
+            .appModule(new AppModule(this))
             .loginModule(new LoginModule())
             .build();
     }

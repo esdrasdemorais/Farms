@@ -1,11 +1,15 @@
 package com.esdrasmorais.farmsandroid.presenter;
 
-import android.view.View;
+import com.esdrasmorais.farmsandroid.view.ILoginView;
 
 public interface ILoginPresenter {
-    void setView(View view);
+    void setView(ILoginView view);
 
     void loginButtonClicked();
 
     void getCurrentUser();
+
+    void updateUsername(String username);
+
+    void updatePassword(String password);
 }
