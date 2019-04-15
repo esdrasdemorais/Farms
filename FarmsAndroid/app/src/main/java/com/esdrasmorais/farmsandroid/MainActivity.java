@@ -1,7 +1,11 @@
 package com.esdrasmorais.farmsandroid;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -14,14 +18,26 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.esdrasmorais.farmsandroid.application.FarmApplication;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import dji.common.flightcontroller.FlightControllerState;
+import dji.sdk.base.BaseProduct;
+import dji.sdk.flightcontroller.FlightController;
+import dji.sdk.products.Aircraft;
 
 public class MainActivity extends FragmentActivity
     implements View.OnClickListener, GoogleMap.OnMapClickListener, OnMapReadyCallback
@@ -33,7 +49,10 @@ public class MainActivity extends FragmentActivity
 
     private double droneLocationLat = 181, droneLocationLng = 181;
     private Marker droneMarker = null;
-    private FlightControlleronDestroy mFlightController;
+    private FlightController mFlightController;
+
+    private boolean isAdd = false;
+    private final Map<Integer, Marker> mMarkers = new ConcurrentHashMap<Integer, Marker>();
 
     private void initFlightController() {
         BaseProduct product = FarmApplication.getProductInstance();
@@ -47,30 +66,31 @@ public class MainActivity extends FragmentActivity
             mFlightController.setStateCallback(new FlightControllerState.Callback() {
                 @Override
                 public void onUpdate(FlightControllerState djiFlightControllerCurrentState) {
-                    droneLocationLat = djiFlightControllerCurrentState.getAircraftLocation().getLatitude();
-                    droneLocationLng = djiFlightControllerCurrentState.getAircraftLocation().getLongitude();
+                    droneLocationLat = djiFlightControllerCurrentState
+                        .getAircraftLocation().getLatitude();
+                    droneLocationLng = djiFlightControllerCurrentState
+                        .getAircraftLocation().getLongitude();
                     updateDroneLocation();
                 }
             });
         }
     }
 
-    private void onProductConnectionChange()
-    {
+    private void onProductConnectionChange() {
         initFlightController();
     }
 
     public static boolean checkGpsCoordination(double latitude, double longitude) {
-        return (latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180) && (latitude != 0f && longitude != 0f);
+        return (latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180)
+                && (latitude != 0f && longitude != 0f);
     }
 
-    private void updateDroneLocation(){
-
+    private void updateDroneLocation() {
         LatLng pos = new LatLng(droneLocationLat, droneLocationLng);
         //Create MarkerOptions object
         final MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(pos);
-        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.aircraft));
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable. aircraft));
 
         runOnUiThread(new Runnable() {
             @Override
@@ -79,7 +99,7 @@ public class MainActivity extends FragmentActivity
                     droneMarker.remove();
                 }
 
-                if (checkGpsCoordinates(droneLocationLat, droneLocationLng)) {
+                if (checkGpsCoordination(droneLocationLat, droneLocationLng)) {
                     droneMarker = gMap.addMarker(markerOptions);
                 }
             }
@@ -88,15 +108,27 @@ public class MainActivity extends FragmentActivity
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
         switch (v.getId()) {
-            case R.id.locate:{
+            case R.id.locate: {
                 updateDroneLocation();
                 cameraUpdate();
                 break;
             }
-            case R.id.config:{
+            case R.id.config: {
                 showSettingDialog();
+                break;
+            }
+            case R.id.add:{
+                enableDisableAdd();
+                break;
+            }
+            case R.id.clear:{
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        gMap.clear();
+                    }
+                });
                 break;
             }
             default:
@@ -174,7 +206,6 @@ public class MainActivity extends FragmentActivity
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-
         mapFragment.getMapAsync(this);
 
         // When the compile and target version is higher than 22, please request the
@@ -192,12 +223,6 @@ public class MainActivity extends FragmentActivity
                     Manifest.permission.READ_PHONE_STATE,
                 }, 1);
         }
-
-        setContentView(R.layout.activity_main);
-        initUI();
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
     }
 
     private void showSettingDialog() {
@@ -255,19 +280,6 @@ public class MainActivity extends FragmentActivity
     }
 
     @Override
-    public void onClick(View v) {
-        // TODO Auto-generated method stub
-        switch (v.getId()) {
-            case R.id.config:{
-                showSettingDialog();
-                break;
-            }
-            default:
-                break;
-        }
-    }
-
-    @Override
     public void onMapReady(GoogleMap googleMap) {
         // TODO Auto-generated method stub
         // Initializing Amap object
@@ -285,7 +297,40 @@ public class MainActivity extends FragmentActivity
         gMap.setOnMapClickListener(this);// add the listener for click for amap object
     }
 
+    private void setResultToToast(final String string){
+        MainActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(MainActivity.this, string, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     @Override
     public void onMapClick(LatLng point) {
+        if (isAdd == true){
+            markWaypoint(point);
+        }else{
+            setResultToToast("Cannot add waypoint");
+        }
+    }
+
+    private void markWaypoint(LatLng point){
+        //Create MarkerOptions object
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(point);
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+        Marker marker = gMap.addMarker(markerOptions);
+        mMarkers.put(mMarkers.size(), marker);
+    }
+
+    private void enableDisableAdd(){
+        if (isAdd == false) {
+            isAdd = true;
+            add.setText("Exit");
+        }else{
+            isAdd = false;
+            add.setText("Add");
+        }
     }
 }

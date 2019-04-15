@@ -17,6 +17,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.esdrasmorais.farmsandroid.MainActivity;
+import com.esdrasmorais.farmsandroid.R;
+import com.esdrasmorais.farmsandroid.application.FarmApplication;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -66,7 +70,7 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
 
         // Register the broadcast receiver for receiving the device connection's changes.
         IntentFilter filter = new IntentFilter();
-        filter.addAction(DJIDemoApplication.FLAG_CONNECTION_CHANGE);
+        filter.addAction(FarmApplication.FLAG_CONNECTION_CHANGE);
         registerReceiver(mReceiver, filter);
     }
 
@@ -120,53 +124,54 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
             AsyncTask.execute(new Runnable() {
                 @Override
                 public void run() {
-                    showToast( "registering, pls wait...");
-                    DJISDKManager.getInstance().registerApp(getApplicationContext(), new DJISDKManager.SDKManagerCallback() {
-                        @Override
-                        public void onRegister(DJIError djiError) {
-                            if (djiError == DJISDKError.REGISTRATION_SUCCESS) {
-                                DJILog.e("App registration", DJISDKError.REGISTRATION_SUCCESS.getDescription());
-                                DJISDKManager.getInstance().startConnectionToProduct();
-                                showToast("Register Success");
-                            } else {
-                                showToast( "Register sdk fails, check network is available");
-                            }
-                            Log.v(TAG, djiError.getDescription());
+                showToast( "registering, pls wait...");
+                DJISDKManager.getInstance().registerApp(getApplicationContext(),
+                    new DJISDKManager.SDKManagerCallback()
+                {
+                    @Override
+                    public void onRegister(DJIError djiError) {
+                        if (djiError == DJISDKError.REGISTRATION_SUCCESS) {
+                            DJILog.e("App registration", DJISDKError.REGISTRATION_SUCCESS.getDescription());
+                            DJISDKManager.getInstance().startConnectionToProduct();
+                            showToast("Register Success");
+                        } else {
+                            showToast( "Register sdk fails, check network is available");
                         }
+                        Log.v(TAG, djiError.getDescription());
+                    }
 
-                        @Override
-                        public void onProductDisconnect() {
-                            Log.d(TAG, "onProductDisconnect");
-                            showToast("Product Disconnected");
+                    @Override
+                    public void onProductDisconnect() {
+                        Log.d(TAG, "onProductDisconnect");
+                        showToast("Product Disconnected");
+                    }
+                    @Override
+                    public void onProductConnect(BaseProduct baseProduct) {
+                        Log.d(TAG, String.format("onProductConnect newProduct:%s", baseProduct));
+                        showToast("Product Connected");
+                    }
+                    @Override
+                    public void onComponentChange(
+                        BaseProduct.ComponentKey componentKey,
+                        BaseComponent oldComponent,
+                        BaseComponent newComponent
+                    ) {
+                        if (newComponent != null) {
+                            newComponent.setComponentListener(new BaseComponent.ComponentListener() {
 
+                                @Override
+                                public void onConnectivityChange(boolean isConnected) {
+                                Log.d(TAG, "onComponentConnectivityChanged: " + isConnected);
+                                }
+                            });
                         }
-                        @Override
-                        public void onProductConnect(BaseProduct baseProduct) {
-                            Log.d(TAG, String.format("onProductConnect newProduct:%s", baseProduct));
-                            showToast("Product Connected");
-
-                        }
-                        @Override
-                        public void onComponentChange(BaseProduct.ComponentKey componentKey, BaseComponent oldComponent,
-                                                      BaseComponent newComponent) {
-
-                            if (newComponent != null) {
-                                newComponent.setComponentListener(new BaseComponent.ComponentListener() {
-
-                                    @Override
-                                    public void onConnectivityChange(boolean isConnected) {
-                                        Log.d(TAG, "onComponentConnectivityChanged: " + isConnected);
-                                    }
-                                });
-                            }
-                            Log.d(TAG,
-                                    String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s",
-                                            componentKey,
-                                            oldComponent,
-                                            newComponent));
-
-                        }
-                    });
+                        Log.d(TAG,
+                            String.format("onComponentChange key:%s, oldComponent:%s, newComponent:%s",
+                                componentKey,
+                                oldComponent,
+                                newComponent));
+                    }
+                });
                 }
             });
         }
@@ -223,7 +228,7 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
     };
 
     private void refreshSDKRelativeUI() {
-        BaseProduct mProduct = DJIDemoApplication.getProductInstance();
+        BaseProduct mProduct = FarmApplication.getProductInstance();
 
         if (null != mProduct && mProduct.isConnected()) {
             Log.v(TAG, "refreshSDK: True");

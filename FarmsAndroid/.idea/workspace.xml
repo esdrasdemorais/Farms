@@ -12,10 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c35da3f-00f6-40d7-bfd8-2aeccd251453" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ConnectionActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/FarmApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ConnectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ConnectionActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/FarmApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/FarmApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,103 +46,87 @@
           <entry key="project.closed" value="3" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.43" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="14" />
-          <entry key="gradle" value="8" />
-          <entry key="java" value="39" />
+          <entry key="gradle" value="14" />
+          <entry key="java" value="44" />
+          <entry key="properties" value="1" />
           <entry key="xml" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="14" />
-          <entry key="Groovy" value="8" />
-          <entry key="JAVA" value="39" />
+          <entry key="Groovy" value="14" />
+          <entry key="JAVA" value="44" />
+          <entry key="Properties" value="1" />
           <entry key="XML" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gradle" value="52" />
-          <entry key="java" value="527" />
+          <entry key="gradle" value="190" />
+          <entry key="java" value="621" />
+          <entry key="properties" value="1" />
           <entry key="xml" value="180" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="52" />
-          <entry key="JAVA" value="527" />
+          <entry key="Groovy" value="190" />
+          <entry key="JAVA" value="621" />
+          <entry key="Properties" value="1" />
           <entry key="XML" value="180" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ConnectionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state relative-caret-position="86">
+              <caret line="259" column="61" selection-start-line="259" selection-start-column="61" selection-end-line="259" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4559#7231#0" expanded="true" />
-                <element signature="e#7230#7231#0" expanded="true" />
+                <element signature="e#8292#8383#0" expanded="true" />
                 <element signature="e#8376#8536#0" expanded="true" />
                 <element signature="e#8535#8536#0" expanded="true" />
-                <element signature="e#9839#10027#0" expanded="true" />
-                <element signature="e#10026#10027#0" expanded="true" />
+                <element signature="e#9207#9235#0" expanded="true" />
+                <element signature="e#9389#9417#0" expanded="true" />
+                <element signature="e#9462#9487#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/MainActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="114" column="5" lean-forward="true" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1368#1369#0" expanded="true" />
-                <element signature="e#1406#1407#0" expanded="true" />
-                <element signature="e#2934#3294#0" expanded="true" />
-                <element signature="e#3293#3294#0" expanded="true" />
-                <element signature="e#2037#2038#0" expanded="true" />
-                <element signature="e#2088#2089#0" expanded="true" />
-                <element signature="e#1277#1278#0" expanded="true" />
-                <element signature="e#1308#1309#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/FarmApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1141#1142#0" expanded="true" />
-                <element signature="e#1179#1180#0" expanded="true" />
-                <element signature="e#1239#1240#0" expanded="true" />
-                <element signature="e#1270#1271#0" expanded="true" />
-                <element signature="e#2149#2406#0" expanded="true" />
-                <element signature="e#2405#2406#0" expanded="true" />
-                <element signature="e#2621#2909#0" expanded="true" />
-                <element signature="e#2908#2909#0" expanded="true" />
-                <element signature="e#5697#5899#0" expanded="true" />
-                <element signature="e#5898#5899#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -162,10 +150,18 @@
       <find>setView</find>
       <find>27.1.1</find>
       <find>onDestroy</find>
-      <find>onProductConnectionChange</find>
       <find>DJIDemoApplication</find>
       <find>Demo</find>
+      <find>onProductConnectionChange</find>
+      <find>onCli</find>
+      <find>cameraUpdate</find>
+      <find>onMapClick</find>
+      <find>onClick</find>
+      <find>DJID</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -2474,7 +2470,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/App.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/view/ILoginView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/presenter/ILoginPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
@@ -2483,7 +2478,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/integer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/integers.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_waypointsetting.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
@@ -2496,9 +2490,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/round_btn_disable.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/round_btn_normal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/round_btn_pressed.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ConnectionActivity.java" />
+        <option value="$PROJECT_DIR$/gradle.properties" />
+        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/FarmApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ConnectionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/App.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -2514,8 +2512,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2530,43 +2528,7 @@
             </path>
             <path>
               <item name="FarmsAndroid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmsAndroid" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmsAndroid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmsAndroid" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmsAndroid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmsAndroid" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmsAndroid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmsAndroid" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="farmsandroid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmsAndroid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmsAndroid" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="farmsandroid" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -2683,7 +2645,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.32242617" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.30407023" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -2693,20 +2655,20 @@
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49960095" weight="0.3294702" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49880287" weight="0.3294702" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.471668" side_tool="true" visible="true" weight="0.21688741" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.47326416" side_tool="true" visible="true" weight="0.48675495" />
       <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49960095" weight="0.3294702" />
       <window_info anchor="bottom" id="Logcat" order="5" sideWeight="0.48363927" weight="1.0" />
       <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.48523542" weight="0.3294702" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.528332" visible="true" weight="0.21688741" />
+      <window_info active="true" anchor="bottom" id="Build" order="8" sideWeight="0.52673584" visible="true" weight="0.48675495" />
       <window_info anchor="bottom" id="Find" order="9" />
-      <window_info anchor="right" id="Hierarchy" weight="0.32960895" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" weight="0.32960895" />
       <window_info anchor="right" id="Gradle" order="4" />
       <window_info anchor="right" id="Preview" order="5" weight="0.23064645" />
+      <window_info anchor="right" id="Hierarchy" order="6" weight="0.32960895" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2917,13 +2879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/presenter/LoginActivityPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -2936,13 +2891,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/integer.xml" />
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_waypointsetting.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -3035,12 +2983,12 @@
       <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="61" column="8" selection-start-line="59" selection-start-column="12" selection-end-line="61" selection-end-column="8" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_connection.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -3050,64 +2998,72 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ConnectionActivity.java">
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4559#7231#0" expanded="true" />
-            <element signature="e#7230#7231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/FarmApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ConnectionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="259" column="61" selection-start-line="259" selection-start-column="61" selection-end-line="259" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8292#8383#0" expanded="true" />
             <element signature="e#8376#8536#0" expanded="true" />
             <element signature="e#8535#8536#0" expanded="true" />
-            <element signature="e#9839#10027#0" expanded="true" />
-            <element signature="e#10026#10027#0" expanded="true" />
+            <element signature="e#9207#9235#0" expanded="true" />
+            <element signature="e#9389#9417#0" expanded="true" />
+            <element signature="e#9462#9487#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/application/FarmApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1270#1271#0" expanded="true" />
-            <element signature="e#2149#2406#0" expanded="true" />
-            <element signature="e#2405#2406#0" expanded="true" />
-            <element signature="e#2621#2909#0" expanded="true" />
-            <element signature="e#2908#2909#0" expanded="true" />
-            <element signature="e#5697#5899#0" expanded="true" />
-            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/esdrasmorais/farmsandroid/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="114" column="5" lean-forward="true" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
-            <element signature="e#1406#1407#0" expanded="true" />
-            <element signature="e#2934#3294#0" expanded="true" />
-            <element signature="e#3293#3294#0" expanded="true" />
-            <element signature="e#2037#2038#0" expanded="true" />
-            <element signature="e#2088#2089#0" expanded="true" />
-            <element signature="e#1277#1278#0" expanded="true" />
-            <element signature="e#1308#1309#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
         </state>
       </provider>
     </entry>

@@ -38,7 +38,7 @@ public class FarmApplication extends Application {
         return instance;
     }
 
-    public DJIDemoApplication() {
+    public FarmApplication () {
 
     }
 

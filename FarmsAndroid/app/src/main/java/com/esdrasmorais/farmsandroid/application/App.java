@@ -20,7 +20,6 @@ public class App extends Application {
             .build();
     }
 
-    public IAppComponent getComponent() {
-        return component;
+    public IAppComponent getComponent() { return component;
     }
 }
