@@ -1,3 +1,5 @@
+package com.esdrasmorais.farmsandroid.view;
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -17,7 +19,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.esdrasmorais.farmsandroid.MainActivity;
 import com.esdrasmorais.farmsandroid.R;
 import com.esdrasmorais.farmsandroid.application.FarmApplication;
 

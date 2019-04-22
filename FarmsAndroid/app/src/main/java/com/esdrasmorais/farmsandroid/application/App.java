@@ -1,4 +1,4 @@
-package com.esdrasmorais.farmsandroid.application;
+    package com.esdrasmorais.farmsandroid.application;
 
 import android.app.Application;
 

@@ -1,12 +1,9 @@
-package com.esdrasmorais.farmsandroid;
+package com.esdrasmorais.farmsandroid.view;
 
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
+import com.esdrasmorais.farmsandroid.R;
 import com.esdrasmorais.farmsandroid.application.App;
 import com.esdrasmorais.farmsandroid.presenter.ILoginPresenter;
 import com.esdrasmorais.farmsandroid.view.ILoginView;
+import com.esdrasmorais.farmsandroid.view.MainActivity;
 
 import javax.inject.Inject;
 

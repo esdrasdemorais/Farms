@@ -1,6 +1,6 @@
 package com.esdrasmorais.farmsandroid.component;
 
-import com.esdrasmorais.farmsandroid.LoginActivity;
+import com.esdrasmorais.farmsandroid.view.LoginActivity;
 import com.esdrasmorais.farmsandroid.module.AppModule;
 import com.esdrasmorais.farmsandroid.module.LoginModule;
 

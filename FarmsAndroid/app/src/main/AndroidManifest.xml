@@ -86,7 +86,7 @@
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_mainactivity"
             android:screenOrientation="landscape"
