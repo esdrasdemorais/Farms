@@ -5,9 +5,9 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        ndk {
+        /*ndk {
             abiFilters 'armeabi-v7a'
-        }
+        }*/
         applicationId "com.esdrasmorais.farmsandroid"
         minSdkVersion 19
         targetSdkVersion 28

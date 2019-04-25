@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
@@ -31,13 +32,28 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import dji.common.error.DJIError;
 import dji.common.flightcontroller.FlightControllerState;
+import dji.common.mission.waypoint.Waypoint;
+import dji.common.mission.waypoint.WaypointMission;
+import dji.common.mission.waypoint.WaypointMissionDownloadEvent;
+import dji.common.mission.waypoint.WaypointMissionExecutionEvent;
+import dji.common.mission.waypoint.WaypointMissionFinishedAction;
+import dji.common.mission.waypoint.WaypointMissionFlightPathMode;
+import dji.common.mission.waypoint.WaypointMissionHeadingMode;
+import dji.common.mission.waypoint.WaypointMissionUploadEvent;
+import dji.common.util.CommonCallbacks;
 import dji.sdk.base.BaseProduct;
 import dji.sdk.flightcontroller.FlightController;
+import dji.sdk.mission.waypoint.WaypointMissionOperator;
+import dji.sdk.mission.waypoint.WaypointMissionOperatorListener;
 import dji.sdk.products.Aircraft;
+import dji.sdk.sdkmanager.DJISDKManager;
 
 public class MainActivity extends FragmentActivity
     implements View.OnClickListener, GoogleMap.OnMapClickListener, OnMapReadyCallback
@@ -53,6 +69,16 @@ public class MainActivity extends FragmentActivity
 
     private boolean isAdd = false;
     private final Map<Integer, Marker> mMarkers = new ConcurrentHashMap<Integer, Marker>();
+
+    private float altitude = 100.0f;
+    private float mSpeed = 10.0f;
+
+    private List<Waypoint> waypointList = new ArrayList<>();
+
+    public static WaypointMission.Builder waypointMissionBuilder;
+    private WaypointMissionOperator instance;
+    private WaypointMissionFinishedAction mFinishedAction = WaypointMissionFinishedAction.NO_ACTION;
+    private WaypointMissionHeadingMode mHeadingMode = WaypointMissionHeadingMode.AUTO;
 
     private void initFlightController() {
         BaseProduct product = FarmApplication.getProductInstance();
@@ -82,7 +108,7 @@ public class MainActivity extends FragmentActivity
 
     public static boolean checkGpsCoordination(double latitude, double longitude) {
         return (latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180)
-                && (latitude != 0f && longitude != 0f);
+            && (latitude != 0f && longitude != 0f);
     }
 
     private void updateDroneLocation() {
@@ -95,13 +121,13 @@ public class MainActivity extends FragmentActivity
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (droneMarker != null) {
-                    droneMarker.remove();
-                }
+            if (droneMarker != null) {
+                droneMarker.remove();
+            }
 
-                if (checkGpsCoordination(droneLocationLat, droneLocationLng)) {
-                    droneMarker = gMap.addMarker(markerOptions);
-                }
+            if (checkGpsCoordination(droneLocationLat, droneLocationLng)) {
+                droneMarker = gMap.addMarker(markerOptions);
+            }
             }
         });
     }
@@ -146,7 +172,7 @@ public class MainActivity extends FragmentActivity
     protected BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            onProductConnectionChange();
+        onProductConnectionChange();
         }
     };
 
@@ -164,7 +190,50 @@ public class MainActivity extends FragmentActivity
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mReceiver);
+        removeListener();
     }
+
+    //Add Listener for WaypointMissionOperator
+    private void addListener() {
+        if (getWaypointMissionOperator() != null) {
+            getWaypointMissionOperator().addListener(eventNotificationListener);
+        }
+    }
+
+    private void removeListener() {
+        if (getWaypointMissionOperator() != null) {
+            getWaypointMissionOperator().removeListener(eventNotificationListener);
+        }
+    }
+
+    private WaypointMissionOperatorListener eventNotificationListener = new WaypointMissionOperatorListener() {
+        @Override
+        public void onDownloadUpdate(WaypointMissionDownloadEvent downloadEvent) {
+
+        }
+
+        @Override
+        public void onUploadUpdate(WaypointMissionUploadEvent uploadEvent) {
+
+        }
+
+        @Override
+        public void onExecutionUpdate(WaypointMissionExecutionEvent executionEvent) {
+
+        }
+
+        @Override
+        public void onExecutionStart() {
+
+        }
+
+        @Override
+        public void onExecutionFinish(@Nullable final DJIError error) {
+            setResultToToast(
+                "Execution finished: " + (error == null ? "Success!" : error.getDescription())
+            );
+        }
+    };
 
     /**
      * @Description : RETURN BTN RESPONSE FUNCTION
@@ -223,6 +292,8 @@ public class MainActivity extends FragmentActivity
                     Manifest.permission.READ_PHONE_STATE,
                 }, 1);
         }
+
+        addListener();
     }
 
     private void showSettingDialog() {
@@ -241,7 +312,13 @@ public class MainActivity extends FragmentActivity
             new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    // TODO Auto-generated method stub
+                    if (checkedId == R.id.lowSpeed){
+                        mSpeed = 3.0f;
+                    } else if (checkedId == R.id.MidSpeed){
+                        mSpeed = 5.0f;
+                    } else if (checkedId == R.id.HighSpeed){
+                        mSpeed = 10.0f;
+                    }
                     Log.d(TAG, "Select Speed finish");
                 }
             }
@@ -250,7 +327,15 @@ public class MainActivity extends FragmentActivity
         actionAfterFinished_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // TODO Auto-generated method stub
+                if (checkedId == R.id.finishNone){
+                    mFinishedAction = WaypointMissionFinishedAction.NO_ACTION;
+                } else if (checkedId == R.id.finishGoHome){
+                    mFinishedAction = WaypointMissionFinishedAction.GO_HOME;
+                } else if (checkedId == R.id.finishAutoLanding){
+                    mFinishedAction = WaypointMissionFinishedAction.AUTO_LAND;
+                } else if (checkedId == R.id.finishToFirst){
+                    mFinishedAction = WaypointMissionFinishedAction.GO_FIRST_WAYPOINT;
+                }
                 Log.d(TAG, "Select action action");
             }
         });
@@ -258,7 +343,15 @@ public class MainActivity extends FragmentActivity
         heading_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // TODO Auto-generated method stub
+                if (checkedId == R.id.headingNext) {
+                    mHeadingMode = WaypointMissionHeadingMode.AUTO;
+                } else if (checkedId == R.id.headingInitDirec) {
+                    mHeadingMode = WaypointMissionHeadingMode.USING_INITIAL_DIRECTION;
+                } else if (checkedId == R.id.headingRC) {
+                    mHeadingMode = WaypointMissionHeadingMode.CONTROL_BY_REMOTE_CONTROLLER;
+                } else if (checkedId == R.id.headingWP) {
+                    mHeadingMode = WaypointMissionHeadingMode.USING_WAYPOINT_HEADING;
+                }
                 Log.d(TAG, "Select heading finish");
             }
         });
@@ -268,6 +361,13 @@ public class MainActivity extends FragmentActivity
             .setView(wayPointSettings)
             .setPositiveButton("Finish",new DialogInterface.OnClickListener(){
                 public void onClick(DialogInterface dialog, int id) {
+                    String altitudeString = wpAltitude_TV.getText().toString();
+                    altitude = Integer.parseInt(nulltoIntegerDefault(altitudeString));
+                    Log.e(TAG,"altitude "+altitude);
+                    Log.e(TAG,"speed "+mSpeed);
+                    Log.e(TAG, "mFinishedAction "+mFinishedAction);
+                    Log.e(TAG, "mHeadingMode "+mHeadingMode);
+                    configWayPointMission();
                 }
             })
             .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -279,17 +379,72 @@ public class MainActivity extends FragmentActivity
             .show();
     }
 
+    String nulltoIntegerDefault(String value){
+        if (!isIntValue(value)) value = "0";
+        return value;
+    }
+
+    Boolean isIntValue(String val)
+    {
+        try {
+            val = val.replace(" ", "");
+            Integer.parseInt(val);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    public WaypointMissionOperator getWaypointMissionOperator() {
+        if (instance == null) {
+            if (DJISDKManager.getInstance().getMissionControl() != null){
+                instance =
+                    DJISDKManager.getInstance().getMissionControl().getWaypointMissionOperator();
+            }
+        }
+        return instance;
+    }
+
+    private void configWayPointMission() {
+        if (waypointMissionBuilder == null) {
+            waypointMissionBuilder = new WaypointMission.Builder().finishedAction(mFinishedAction)
+                .headingMode(mHeadingMode)
+                .autoFlightSpeed(mSpeed)
+                .maxFlightSpeed(mSpeed)
+                .flightPathMode(WaypointMissionFlightPathMode.NORMAL);
+        } else {
+            waypointMissionBuilder.finishedAction(mFinishedAction)
+                .headingMode(mHeadingMode)
+                .autoFlightSpeed(mSpeed)
+                .maxFlightSpeed(mSpeed)
+                .flightPathMode(WaypointMissionFlightPathMode.NORMAL);
+        }
+
+        if (waypointMissionBuilder.getWaypointList().size() > 0) {
+            for (int i = 0; i< waypointMissionBuilder.getWaypointList().size(); i++){
+                waypointMissionBuilder.getWaypointList().get(i).altitude = altitude;
+            }
+            setResultToToast("Set Waypoint attitude successfully");
+        }
+
+        DJIError error = getWaypointMissionOperator().loadMission(waypointMissionBuilder.build());
+        if (error == null) {
+            setResultToToast("loadWaypoint succeded");
+        } else {
+            setResultToToast("loadWaypoint failed " + error.getDescription());
+        }
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        // TODO Auto-generated method stub
         // Initializing Amap object
         if (gMap == null) {
             gMap = googleMap;
             setUpMap();
         }
 
-        LatLng shenzhen = new LatLng(22.5362, 113.9454);
-        gMap.addMarker(new MarkerOptions().position(shenzhen).title("Marker in Shenzhen"));
+        LatLng shenzhen = new LatLng(-23.4589769, -46.5112436);
+        gMap.addMarker(new MarkerOptions().position(shenzhen).title("Marker in Rua Angelo"));
         gMap.moveCamera(CameraUpdateFactory.newLatLng(shenzhen));
     }
 
@@ -310,12 +465,37 @@ public class MainActivity extends FragmentActivity
     public void onMapClick(LatLng point) {
         if (isAdd == true){
             markWaypoint(point);
-        }else{
+            Waypoint mWaypoint = new Waypoint(point.latitude, point.longitude, altitude);
+            //Add Waypoints to Waypoint arraylist;
+            if (waypointMissionBuilder != null) {
+                waypointList.add(mWaypoint);
+                waypointMissionBuilder.waypointList(waypointList).waypointCount(waypointList.size());
+            } else {
+                waypointMissionBuilder = new WaypointMission.Builder();
+                waypointList.add(mWaypoint);
+                waypointMissionBuilder.waypointList(waypointList).waypointCount(waypointList.size());
+            }
+        } else {
             setResultToToast("Cannot add waypoint");
         }
     }
 
-    private void markWaypoint(LatLng point){
+    private void uploadWayPointMission() {
+        getWaypointMissionOperator().uploadMission(new CommonCallbacks.CompletionCallback() {
+            @Override
+            public void onResult(DJIError error) {
+                if (error == null) {
+                    setResultToToast("Mission upload successfully!");
+                } else {
+                    setResultToToast("Mission upload failed, error: " +
+                        error.getDescription() + " retrying...");
+                    getWaypointMissionOperator().retryUploadMission(null);
+                }
+            }
+        });
+    }
+
+    private void markWaypoint(LatLng point) {
         //Create MarkerOptions object
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(point);
@@ -324,11 +504,11 @@ public class MainActivity extends FragmentActivity
         mMarkers.put(mMarkers.size(), marker);
     }
 
-    private void enableDisableAdd(){
+    private void enableDisableAdd() {
         if (isAdd == false) {
             isAdd = true;
             add.setText("Exit");
-        }else{
+        } else {
             isAdd = false;
             add.setText("Add");
         }
